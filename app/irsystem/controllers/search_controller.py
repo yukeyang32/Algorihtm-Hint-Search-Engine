@@ -2,7 +2,7 @@ from . import *
 from app.irsystem.models.helpers import *
 from app.irsystem.models.helpers import NumpyEncoder as NumpyEncoder
 
-project_name = "Coding Problems Hint Generator"
+project_name = "LeetHelper"
 net_id = "Jiejun Zhang, jz2252; Keyang Yu, ky442; Shuyi Gu, sg2474; Wei Cheng, wc655; Tan Su, ts864"
 
 @irsystem.route('/', methods=['GET'])
