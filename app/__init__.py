@@ -7,6 +7,7 @@ import os
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_socketio import SocketIO
+import pandas as pd
 
 # Configure app
 socketio = SocketIO()
@@ -16,6 +17,10 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 
 # DB
 db = SQLAlchemy(app)
+
+# Data setup
+file_path = "./dataGeneration/problemData.csv"
+leetcode_data = pd.read_csv(file_path)
 
 # Import + Register Blueprints
 from app.accounts import accounts as accounts
