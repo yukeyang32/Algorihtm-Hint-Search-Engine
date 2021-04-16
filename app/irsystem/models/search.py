@@ -2,7 +2,6 @@ import nltk
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 
-nltk.download('stopwords')
 sw = stopwords.words('english') 
 
 def compute_cosine_similarity(query,data):
