@@ -1,26 +1,20 @@
-import nltk
-from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 
-sw = stopwords.words('english') 
 
 def compute_cosine_similarity(query,data):
     result = list()
     query_vec = word_tokenize(query)
     for index, dat in data.iterrows():
         dat_vec = word_tokenize(dat['description'])
-        # remove stop words
-        query_set = {word for word in query_vec if not word in sw} 
-        dat_set = {word for word in dat_vec if not word in sw}
-        rvector = query_set.union(dat_set) 
+        rvector = query_vec + dat_vec
         l1 = list()
         l2 = list()
         for w in rvector:
-            if w in query_set: 
+            if w in query_vec: 
                 l1.append(1)
             else: 
                 l1.append(0)
-            if w in dat_set: 
+            if w in dat_vec: 
                 l2.append(1)
             else: 
                 l2.append(0)
