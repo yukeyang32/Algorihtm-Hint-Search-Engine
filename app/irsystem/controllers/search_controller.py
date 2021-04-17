@@ -31,7 +31,7 @@ def search():
   if not query:
     query = ''
     topQuestions = []
-    topTags = []
+    topHints = []
 
   else:
     # Type: [(title, score)], not sorted by score.
