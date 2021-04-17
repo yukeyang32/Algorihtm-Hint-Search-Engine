@@ -47,8 +47,8 @@
             <form>
                 <div class="jumbotron text-center">
                   <div>
-                      <input id="input" type="text" name="search" class="form-control" placeholder="Your coding problem prompt"">
-                      
+                      <!--<input id="input" type="text" name="search" class="form-control" placeholder="Your coding problem prompt" value="{{query}}">-->
+                      <textarea id="input" name="search" class="form-control" placeholder="Your coding problem prompt" rows=5>{{query}}</textarea>
                    </div>
                    <div class="row justify-content-center" style="margin-top: 3%;" >
                       <button type="submit" class= "btn btn-outline-danger"> Search! </button>
@@ -62,20 +62,20 @@
 
     <section>
         <div class="output text-center" style="margin-top: -5%">
-            {% if data %}
-                <h4 style="color: #CD5C5C;">{{output_message}}</h4>
+            {% if topQuestions %}
+                <!--<h4 style="color: #CD5C5C;">{{output_message}}</h4>-->
                 <h4 style="color: #CD5C5C;">Hints</h4>
                     <div class="container justify-content-center" style="width: 80%;">
-                            {% for d in data %} 
-                            <h4 style="color: #CD5C5C;">{{d}}</h4>
+                            {% for h in topHints %} 
+                            <h4 style="color: #CD5C5C;">{{'{}, {}'.format(h[0], h[1])}}</h4>
                             {% endfor %}
                     </div>
                 
                 <br>
                 <h4 style="color: #CD5C5C;">Similar Questions</h4>
                     <div class="container justify-content-center" style="width: 80%;">
-                            {% for d in data %} 
-                            <h4 style="color: #CD5C5C;">{{d}}</h4>
+                            {% for q in topQuestions %} 
+                            <h4 style="color: #CD5C5C;"><a href="{{q[1]}}">{{q[0]}}</a>, {{q[2]}}</h4>
                             {% endfor %}
                     </div>
             {% endif %}
