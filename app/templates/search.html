@@ -1,39 +1,101 @@
-<html>
-    <head>
-        <link rel="stylesheet" href="/static/bootstrap.min.css">
-        <link rel="stylesheet" href="/static/main.css">
-    </head>
-    <body>
-        <div class="topcorner">
-            <p>Project Name: {{ name }}</p>
-            <p>Student Name: ({{ netid }})</p>
-        </div>
-        <form class="form-inline global-search">
-            <h1 style="font-size: 55px; font-family:Futura; color: #4285F4">
-                C
-                <span style="color: #EA4335; ">S</span>
-                <span style="color: #FBBC05; ">4</span>
-                3
-                <span style="color: #34A853; ">0</span>
-                <span style="color: #EA4335; ">0</span>
-            </h1>
-            
-            <br><br>
-            
-            <div class="form-group">
-                <input id="input" type="text" name="search" class="form-control" placeholder="Your Input">
-            </div>
-            <button type="submit" class="btn btn-info"> Go! </button>
-        </form>
-        <form class="form-inline global-search">
-        {% if data %}
-            <h1>{{output_message}}</h1>
-            {% for d in data %}  
-                <br>
-                <p>{{d}}</p>
-            {% endfor %}
-        {% endif %}
-        </form>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>LeetHelper</title>
 
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js-bootstrap-css/1.2.1/typeaheadjs.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@yaireo/tagify@2/dist/tagify.min.css">
+  <link rel="stylesheet" href="/static/main_v1.css">
+  
+  
+  <!--link rel="icon" type="image/png" href="{{ url_for('static', filename='img/icon-152x152.png') }}"-->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/corejs-typeahead/1.2.1/bloodhound.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/corejs-typeahead/1.2.1/typeahead.jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify@2/dist/tagify.min.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.8.0/js/all.js" integrity="sha384-ukiibbYjFS/1dhODSWD+PrZ6+CGCgf8VbyUH7bQQNUulL+2r59uGYToovytTf4Xm" crossorigin="anonymous"></script>
+</head>
+
+<body style = "background-color: #CD5C5C;">
+  <main role="main">
+
+    <section class="jumbotron text-center">
+      <div class="container">
+        <img class="logo" src="{{ url_for('static', filename='icon.jpeg') }}" style="margin-bottom: 2%" />
+        <h1 style="font-size: 55px; font-family:Futura; color: #FFA07A">
+            L
+            <span style="color: #CD5C5C; ">ee</span>
+            <span style="color: #FBBC05; ">t</span>
+            <span style="color: #CD5C5C; ">Helper</span>
+
+        </h1>
+        <h4 style="font-weight: normal; color: #E9967A;">Getting hints & practice questions for your coding interview questions</h4>
+        <h4 style="font-weight: normal; color: #E9967A;">----------</h4>
+      </div>
+    </section>
+
+    <section>
+        <div class="container text-center input_section" style="margin-top:-6%;">
+            <form>
+                <div class="jumbotron text-center">
+                  <div>
+                      <input id="input" type="text" name="search" class="form-control" placeholder="Your coding problem prompt"">
+                      
+                   </div>
+                   <div class="row justify-content-center" style="margin-top: 3%;" >
+                      <button type="submit" class= "btn btn-outline-danger"> Search! </button>
+                    </div>
+              
+                </div>
+              </form>
+        </div>
+      </section>
+             
+
+    <section>
+        <div class="output text-center" style="margin-top: -5%">
+            {% if data %}
+                <h4 style="color: #CD5C5C;">{{output_message}}</h4>
+                <h4 style="color: #CD5C5C;">Hints</h4>
+                <div class="output_rows" style="margin-top: 5%;">
+                    <div class="container justify-content-center" style="width: 80%;">
+                        <div class="card-columns">
+                            {% for d in data %} 
+                            <h4 style="color: #CD5C5C;">{{d}}</h4>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                
+                <h4 style="color: #CD5C5C;">Similar Questions</h4>
+                <div class="output_rows" style="margin-top: 5%;">
+                    <div class="container justify-content-center" style="width: 80%;">
+                        <div class="card-columns">
+                            {% for d in data %} 
+                            <h4 style="color: #CD5C5C;">{{d}}</h4>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </section>
+
+
+
+    </main>
+
+    <footer style="background-color: #CD5C5C; ">
+        <p style ="color: white;"><a href="https://github.com/yukeyang32/cs4300sp2021-ky442-jz2252-sg2474-wc655-ts864" ><i class="fab fa-github"></i></a>  @{{ name }}: {{ netid }}.</p>
+    </footer>
+
+</body>
 </html>

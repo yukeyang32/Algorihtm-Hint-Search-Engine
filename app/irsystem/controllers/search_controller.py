@@ -5,7 +5,7 @@ from app.irsystem.models.helpers import NumpyEncoder as NumpyEncoder
 from app.irsystem.models.search import *
 
 project_name = "Leethelper"
-net_id = "Jiejun Zhang, jz2252; Keyang Yu, ky442; Shuyi Gu, sg2474; Wei Cheng, wc655; Tan Su, ts864"
+net_id = "Wei Cheng - wc655 | Shuyi Gu - sg2474 | Tan Su - ts864 | Keyang Yu - ky442 | Jiejun Zhang - jz2252"
 
 @irsystem.route('/', methods=['GET'])
 def search():
@@ -19,6 +19,3 @@ def search():
 		similarity_score_list = sorted(enumerate(similarity_score_list), key=lambda x:x[1][1], reverse=True)
 		return_data = [x[1] for x in similarity_score_list[:5]]
 	return render_template('search.html', name=project_name, netid=net_id, output_message=output_message, data=return_data)
-
-
-
