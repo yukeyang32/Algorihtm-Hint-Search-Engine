@@ -8,6 +8,7 @@ from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_socketio import SocketIO
 import pandas as pd
+import ast
 
 # Configure app
 socketio = SocketIO()
@@ -21,6 +22,13 @@ db = SQLAlchemy(app)
 # Data setup
 file_path = "./dataGeneration/problemData.csv"
 leetcode_data = pd.read_csv(file_path)
+NON_HINT_TAGS = {'array', 'string', 'math', 'tree', 'graph', 'design', 'brainteaser', 'linked-list', 'geometry', 'random'}
+titleToTags = {}
+titleToURL = {}
+
+for index, d in leetcode_data.iterrows():
+  titleToTags[d['title']] = ast.literal_eval(d['tags'])
+  titleToURL[d['title']] = d['url']
 
 # Import + Register Blueprints
 from app.accounts import accounts as accounts

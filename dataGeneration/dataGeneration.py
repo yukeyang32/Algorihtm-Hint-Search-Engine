@@ -21,20 +21,20 @@ def extractDescription(raw):
 
 def getDataFor(problems):
   # id: List[int], title: List[str], description: List[str], tags: List[List[str]]
-  result = {'id': [], 'title': [], 'description': [], 'tags': []}
+  result = {'id': [], 'title': [], 'url': [], 'description': [], 'tags': []}
 
   for problem in tqdm(problems):
     data = get_problem_by_slug(problem)
 
     result['id'].append(int(data['questionId']))
     result['title'].append(data['questionTitle'])
+    result['url'].append('https://leetcode.com/problems/{}'.format(data['questionTitleSlug']))
     result['description'].append(extractDescription(data['content']))
     result['tags'].append([t['slug'] for t in data['topicTags']])
 
   return result
 
-def generateAsCSV(fileName='problemData.csv'):
-  problems = get_problems()
+def generateAsCSV(problems=get_problems(), fileName='problemData.csv'):
   print('{} problem titles retrieved.'.format(len(problems)))
   result = getDataFor(problems)
   pd.DataFrame(result).to_csv(fileName, index=False)
@@ -53,4 +53,4 @@ if __name__ == '__main__':
     print(result['description'][i])
     print('\n')
 
-  pd.DataFrame(result).to_csv('data.csv', index=False)
+  pd.DataFrame(result).to_csv('testData.csv', index=False)

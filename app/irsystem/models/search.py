@@ -3,6 +3,10 @@ from nltk.tokenize import word_tokenize
 
 sw = stopwords.words('english') 
 
+"""
+All similarity measures should have return type [(title, score)], not sorted by score.
+"""
+
 def compute_cosine_similarity(query,data):
     result = list()
     query_vec = word_tokenize(query)
