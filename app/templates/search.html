@@ -65,26 +65,19 @@
             {% if data %}
                 <h4 style="color: #CD5C5C;">{{output_message}}</h4>
                 <h4 style="color: #CD5C5C;">Hints</h4>
-                <div class="output_rows" style="margin-top: 5%;">
                     <div class="container justify-content-center" style="width: 80%;">
-                        <div class="card-columns">
                             {% for d in data %} 
                             <h4 style="color: #CD5C5C;">{{d}}</h4>
                             {% endfor %}
-                        </div>
                     </div>
-                </div>
                 
+                <br>
                 <h4 style="color: #CD5C5C;">Similar Questions</h4>
-                <div class="output_rows" style="margin-top: 5%;">
                     <div class="container justify-content-center" style="width: 80%;">
-                        <div class="card-columns">
                             {% for d in data %} 
                             <h4 style="color: #CD5C5C;">{{d}}</h4>
                             {% endfor %}
-                        </div>
                     </div>
-                </div>
             {% endif %}
         </div>
     </section>
