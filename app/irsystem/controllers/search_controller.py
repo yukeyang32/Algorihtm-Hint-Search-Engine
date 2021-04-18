@@ -35,7 +35,8 @@ def search():
 
   else:
     # Type: [(title, score)], not sorted by score.
-    similarity_score_list = compute_cosine_similarity(query, leetcode_data)
+    #similarity_score_list = compute_cosine_similarity(query, leetcode_data)
+    similarity_score_list = compute_cosine_similarity_tf_idf(query)
     similarity_score_list.sort(key=lambda x: x[1], reverse=True)
 
     # Type: [(title, url, score)], sorted by score.
