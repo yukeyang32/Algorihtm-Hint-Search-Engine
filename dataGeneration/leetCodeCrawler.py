@@ -41,14 +41,14 @@ def get_problems():
 
     for question in question_list['stat_status_pairs']:
         # 题目编号
-        question_id = question['stat']['question_id']
+        # question_id = question['stat']['question_id']
         # 题目名称
         question_slug = question['stat']['question__title_slug']
         # 题目状态
-        question_status = question['status']
+        # question_status = question['status']
 
         # 题目难度级别，1 为简单，2 为中等，3 为困难
-        level = question['difficulty']['level']
+        # level = question['difficulty']['level']
 
         # 是否为付费题目
         if not question['paid_only']:
@@ -58,7 +58,15 @@ def get_problems():
 
 def get_problem_by_slug(slug):
     url = "https://leetcode.com/graphql"
-    params = {'operationName': "getQuestionDetail",
+    headers = {'User-Agent': user_agent, 'Connection':
+        'keep-alive', 'Content-Type': 'application/json',
+        'Referer': 'https://leetcode.com/problems/' + slug}
+
+    ###############################################
+    ## crawle question details
+    ################################################
+    # params for crawling each leetcode question details
+    question_params = {'operationName': "getQuestionDetail",
         'variables': {'titleSlug': slug},
         'query': '''query getQuestionDetail($titleSlug: String!) {
             question(titleSlug: $titleSlug) {
@@ -68,6 +76,8 @@ def get_problem_by_slug(slug):
                 questionTitleSlug
                 content
                 difficulty
+                dislikes
+                likes
                 stats
                 similarQuestions
                 categoryTitle
@@ -79,13 +89,31 @@ def get_problem_by_slug(slug):
         }'''
     }
 
-    json_data = json.dumps(params).encode('utf8')
-                        
-    headers = {'User-Agent': user_agent, 'Connection': 
-        'keep-alive', 'Content-Type': 'application/json',
-        'Referer': 'https://leetcode.com/problems/' + slug}
+    json_data = json.dumps(question_params).encode('utf8')
     resp = session.post(url, data = json_data, headers = headers, timeout = 10)
-    content = resp.json()
+    question_details = resp.json()['data']['question']
 
-    # 题目详细信息
-    return content['data']['question']
+    ##############################################
+    ## crawle discussion tags
+    ################################################
+    # get questionId
+    quesionId = question_details['questionId']
+    # params for crawling each leetcode question's discussion tags
+    diss_tag_params = {"operationName": "discussQuestionTopicTags",
+                      "variables": {"selectedTags": [], "questionId": quesionId},
+                      "query": '''query discussQuestionTopicTags($tagType: String, $questionId: String!, $selectedTags: [String!]) {
+            discussQuestionTopicTags(tagType: $tagType, questionId: $questionId, selectedTags: $selectedTags) {
+                ...TopicTag\n}\n}
+
+                fragment TopicTag on DiscussTopicTagNode {
+                name
+                slug
+                numTopics
+                }
+                '''
+                      }
+
+    json_data = json.dumps(diss_tag_params).encode('utf8')
+    resp = session.post(url, data=json_data, headers=headers, timeout=10)
+    dis_tags = resp.json()['data']['discussQuestionTopicTags']
+    return question_details, dis_tags
