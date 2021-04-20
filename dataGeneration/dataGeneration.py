@@ -21,13 +21,14 @@ def extractDescription(raw):
 
 def getDataFor(problems):
   # id: List[int], title: List[str], description: List[str], tags: List[List[str]]
-  result = {'id': [], 'title': [], 'description': [], 'tags': [], 'likes':[], 'dislikes':[], 'acRate':[], 'dis_tags':[]}
+  result = {'id': [], 'title': [], 'url': [],'description': [], 'tags': [], 'likes':[], 'dislikes':[], 'acRate':[], 'dis_tags':[]}
 
   for problem in tqdm(problems):
     question_details, dis_tags = get_problem_by_slug(problem)
 
     result['id'].append(int(question_details['questionId']))
     result['title'].append(question_details['questionTitle'])
+    result['url'].append('https://leetcode.com/problems/{}'.format(question_details['questionTitleSlug']))
     result['description'].append(extractDescription(question_details['content']))
     result['tags'].append([t['slug'] for t in question_details['topicTags']])
     result['likes'].append(int(question_details['likes']))
