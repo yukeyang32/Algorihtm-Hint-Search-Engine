@@ -21,20 +21,27 @@ def extractDescription(raw):
 
 def getDataFor(problems):
   # id: List[int], title: List[str], description: List[str], tags: List[List[str]]
-  result = {'id': [], 'title': [], 'url': [],'description': [], 'tags': [], 'likes':[], 'dislikes':[], 'acRate':[], 'dis_tags':[]}
+  result = {'id': [], 'title': [], 'url': [],'description': [], 'tags': [],'difficulty':[],
+            'likes':[], 'dislikes':[], 'totalSubmission':[], 'totalAccepted':[], 'similarQuestions':[],
+            'dis_tags':[]}
 
   for problem in tqdm(problems):
     question_details, dis_tags = get_problem_by_slug(problem)
 
-    result['id'].append(int(question_details['questionId']))
+    result['id'].append(int(question_details['questionFrontendId']))
     result['title'].append(question_details['questionTitle'])
     result['url'].append('https://leetcode.com/problems/{}'.format(question_details['questionTitleSlug']))
     result['description'].append(extractDescription(question_details['content']))
     result['tags'].append([t['slug'] for t in question_details['topicTags']])
+    result['difficulty'].append(question_details['difficulty'])
     result['likes'].append(int(question_details['likes']))
     result['dislikes'].append(int(question_details['dislikes']))
     stats = json.loads(question_details['stats'])
-    result['acRate'].append(stats['acRate'])
+    result['totalSubmission'].append(stats['totalSubmissionRaw'])
+    result['totalAccepted'].append(stats['totalAcceptedRaw'])
+    simQues = json.loads(question_details['similarQuestions'])
+    result['similarQuestions'].append(json.dumps([d['title'] for d in simQues]))
+
     result['dis_tags'].append([(tag['name'],tag['numTopics']) for tag in dis_tags])
 
   return result

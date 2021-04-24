@@ -66,9 +66,9 @@ def get_problem_by_slug(slug):
     ## crawle question details
     ################################################
     # params for crawling each leetcode question details
-    question_params = {'operationName': "getQuestionDetail",
+    question_params = {'operationName': "questionData",
         'variables': {'titleSlug': slug},
-        'query': '''query getQuestionDetail($titleSlug: String!) {
+        'query': '''query questionData($titleSlug: String!) {
             question(titleSlug: $titleSlug) {
                 questionId
                 questionFrontendId
