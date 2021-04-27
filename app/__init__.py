@@ -4,18 +4,28 @@ monkey.patch_all()
 
 # Imports
 import os
+import ast
+import math
+import re
+import numpy as np
+import pandas as pd
+
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_socketio import SocketIO
-import pandas as pd
-import ast
+
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize,RegexpTokenizer
-from collections import defaultdict, Counter
-import numpy as np
-import math
-import re
+from nltk.stem import WordNetLemmatizer
 
+from sklearn.feature_extraction.text import TfidfVectorizer
+
+from sklearn.neural_network import MLPRegressor
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.multioutput import MultiOutputClassifier
+from sklearn.model_selection import train_test_split
+
+from collections import defaultdict, Counter
 
 # Configure app
 socketio = SocketIO()
@@ -36,7 +46,8 @@ titleToDifficulty = {}
 titleToDescription = {}
 titleToLike = {}
 titleToDislike = {}
-reg_tokenizer = RegexpTokenizer("[a-zA-Z][a-zA-Z]+")
+
+reg_tokenizer = RegexpTokenizer("[a-zA-Z]{2,}")
 def build_inverted_index(data):
 
   inverted_index = defaultdict(list)
@@ -58,7 +69,7 @@ def compute_idf(inv_idx, n_questions, min_df=15, max_df_ratio=0.90):
       continue
     idf[term] = math.log2(n_questions / (1 + len(inv_idx[term])))
   return idf
-idf = compute_idf(inv_idx, len(leetcode_data), min_df=1, max_df_ratio=0.1)
+idf = compute_idf(inv_idx, len(leetcode_data), min_df=1, max_df_ratio=0.9)
 
 def compute_question_norms(index, idf, n_questions):
   norms = np.zeros(n_questions)
@@ -82,6 +93,55 @@ for index, d in leetcode_data.iterrows():
   titleToDescription[d['title']] = d['description']
   titleToLike[d['title']] = d['likes']
   titleToDislike[d['title']] = d['dislikes']
+
+# Train machine learning model
+def trainClassifier():
+  X = []
+  Y = []
+
+  for title, description in titleToDescription.items():
+    tags = [t for t in titleToTags[title] if t not in NON_HINT_TAGS]
+
+    if tags:
+      X.append(description)
+      Y.append(tags)
+
+  wnl = WordNetLemmatizer()
+
+  def tokenize(doc):
+    return [wnl.lemmatize(t) for t in reg_tokenizer.tokenize(doc)]
+
+  mlVectorizer = TfidfVectorizer(tokenizer=tokenize, stop_words='english', max_df=0.7, min_df=5)
+  X = mlVectorizer.fit_transform(X)
+
+  classes = set()
+
+  for tags in Y:
+      for t in tags:
+          classes.add(t)
+          
+  classes = list(classes)
+  tagToClassIndex = {tag: i for i, tag in enumerate(classes)}
+
+  for i in range(len(Y)):
+      vectorY = [0] * len(classes)
+
+      for tag in Y[i]:
+          vectorY[tagToClassIndex[tag]] = 1
+
+      Y[i] = vectorY
+
+  Y = np.array(Y)
+  clf = MultiOutputClassifier(MultinomialNB(fit_prior=False)).fit(X, Y)
+
+  def classify(text):
+    x = mlVectorizer.transform([text])
+    class_probs = np.array([p[0][1] for p in clf.predict_proba(x)])
+    return [(classes[i], class_probs[i]) for i in (-class_probs).argsort()]
+
+  return classify
+
+classify = trainClassifier()
 
 # Import + Register Blueprints
 from app.accounts import accounts as accounts

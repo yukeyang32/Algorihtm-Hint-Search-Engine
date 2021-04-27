@@ -2,6 +2,7 @@ from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from app import idf, inv_idx, question_norms, index_to_title
 from collections import Counter, defaultdict
+from functools import lru_cache
 import math
 import wikipedia
 from app.irsystem.models.helpers import wikipediaEdgeCase
@@ -70,6 +71,7 @@ def compute_cosine_similarity_tf_idf(query):
     return score #sorted(score, key=lambda x:-x[1] )
 
 
+@lru_cache(None)
 def wikipedia_safe_summary_crawler(hint):
     try:
         # Edge case
@@ -87,6 +89,7 @@ def wikipedia_safe_summary_crawler(hint):
         except:
             pass
 
+@lru_cache(None)
 def wikipedia_safe_url_crawler(hint):
     try:
       # Edge case
