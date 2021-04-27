@@ -8,6 +8,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@yaireo/tagify@2/dist/tagify.min.css">
   <link rel="stylesheet" href="/static/main_v1.css">
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/album/">
+
+    
+
+  <!-- Bootstrap core CSS -->
+  <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
   
   
   <!--link rel="icon" type="image/png" href="{{ url_for('static', filename='img/icon-152x152.png') }}"-->
@@ -61,9 +68,80 @@
              
 
     <section>
-        <div class="output text-center" style="margin-top: -5%">
+      <ul class="nav nav-tabs tabs-bordered">
+        <li class="nav-item"><a href="#hints" data-toggle="tab" aria-expanded="true" class="nav-link active">Hints </a></li>
+        <li class="nav-item"><a href="#questions" data-toggle="tab" aria-expanded="false" class="nav-link">Similar Questions</a></li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane" id="questions">
+          <div class="album py-5">
+            <div class="container">
+        
+              <div>
+                {% if topQuestions %}
+                  {% for q in topQuestions %} 
+                    <div class="col">
+                      <div class="card shadow-sm">
+                        <svg class="bd-placeholder-img card-img-top" width="100%" height="125" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#CD5C5C"/><text text-anchor="middle" y="50%" x="50%" fill="#eceeef" dy=".3em">{{q[0]}}</text></svg>
+            
+                        <div class="card-body">
+                          <p class="card-text">{{q[4]}}
+                          </p>
+                          <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                              <a href="{{q[1]}}"><button type="button" class="btn btn-sm btn-outline-secondary">Link To Question</button></a>
+                            </div>
+                            <small class="text-muted"><i class="far fa-thumbs-up"></i> {{q[5]}}   <i class="far fa-thumbs-down"></i> {{q[6]}}   Difficulty: {{q[3]}}</small>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <br>
+                  {% endfor %}
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-pane active" id="hints">
+
+          <div class="album py-5">
+            <div class="container">
+        
+              <div>
+                {% if topHints %}
+                  {% for h in topHints %} 
+                    <div class="col">
+                      <div class="card shadow-sm">
+                        <svg class="bd-placeholder-img card-img-top" width="100%" height="125" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#CD5C5C"/><text text-anchor="middle" y="50%" x="50%" fill="#eceeef" dy=".3em">{{h[0]}}</text></svg>
+            
+                        <div class="card-body">
+                          <p class="card-text">{{h[2]}}
+                          </p>
+                          <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                              <a href="{{h[3]}}"><button type="button" class="btn btn-sm btn-outline-secondary">Link To Explanation</button></a>
+                            </div>
+                            <small class="text-muted"></small>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <br>
+                  {% endfor %}
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+        <!-- <div class="output text-center" style="margin-top: -5%">
             {% if topQuestions %}
-                <!--<h4 style="color: #CD5C5C;">{{output_message}}</h4>-->
+                <h4 style="color: #CD5C5C;">{{output_message}}</h4>
                 <h4 style="color: #CD5C5C;">Hints</h4>
                     <div class="container justify-content-center" style="width: 80%;">
                             {% for h in topHints %} 
@@ -79,7 +157,7 @@
                             {% endfor %}
                     </div>
             {% endif %}
-        </div>
+        </div> -->
     </section>
 
 

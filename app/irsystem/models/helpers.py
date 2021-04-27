@@ -47,3 +47,14 @@ def json_numpy_obj_hook(dct):
         data = base64.b64decode(dct['__ndarray__'])
         return np.frombuffer(data, dct['dtype']).reshape(dct['shape'])
     return dct
+
+def wikipediaEdgeCase(hint):
+    if hint == "greedy":
+        hint = "greedy algorithm"
+    if hint == "heap":
+        hint = "heap (data structure)"
+    if hint == "divide-and-conquer":
+        hint = "divide and conquer algorithm"
+    if hint == "sort":
+        hint = "sorting algorithm"
+    return hint

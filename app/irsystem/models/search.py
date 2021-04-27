@@ -3,6 +3,8 @@ from nltk.tokenize import word_tokenize
 from app import idf, inv_idx, question_norms, index_to_title
 from collections import Counter, defaultdict
 import math
+import wikipedia
+from app.irsystem.models.helpers import wikipediaEdgeCase
 
 sw = stopwords.words('english') 
 
@@ -66,4 +68,39 @@ def compute_cosine_similarity_tf_idf(query):
     
     score = [(index_to_title[k], v) for k, v in temp_score.items()]
     return score #sorted(score, key=lambda x:-x[1] )
+
+
+def wikipedia_safe_summary_crawler(hint):
+    try:
+        # Edge case
+        hint = wikipediaEdgeCase(hint)
+        return wikipedia.summary(hint, sentences=2, auto_suggest = False)
+    except wikipedia.exceptions.PageError as e:
+        try:
+            return wikipedia.summary(hint, sentences=2) 
+        except:
+            pass
+    except wikipedia.DisambiguationError as e:
+        try:
+            hint = hint + " abstract data type"
+            return wikipedia.summary(hint, sentences=2)
+        except:
+            pass
+
+def wikipedia_safe_url_crawler(hint):
+    try:
+      # Edge case
+        hint = wikipediaEdgeCase(hint)
+        return wikipedia.page(hint, auto_suggest = False).url
+    except wikipedia.exceptions.PageError as e:
+      try:
+        return wikipedia.page(hint).url 
+      except:
+        pass
+    except wikipedia.DisambiguationError as e:
+      try:
+        hint = hint + " abstract data type"
+        return wikipedia.page(hint).url
+      except:
+          pass
      

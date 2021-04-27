@@ -32,6 +32,10 @@ leetcode_data = pd.read_csv(file_path)
 NON_HINT_TAGS = {'array', 'string', 'math', 'tree', 'graph', 'design', 'brainteaser', 'linked-list', 'geometry', 'random'}
 titleToTags = {}
 titleToURL = {}
+titleToDifficulty = {}
+titleToDescription = {}
+titleToLike = {}
+titleToDislike = {}
 reg_tokenizer = RegexpTokenizer("[a-zA-Z][a-zA-Z]+")
 def build_inverted_index(data):
 
@@ -74,6 +78,10 @@ question_norms = compute_question_norms(inv_idx, idf, len(leetcode_data))
 for index, d in leetcode_data.iterrows():
   titleToTags[d['title']] = ast.literal_eval(d['tags'])
   titleToURL[d['title']] = d['url']
+  titleToDifficulty[d['title']] = d['difficulty']
+  titleToDescription[d['title']] = d['description']
+  titleToLike[d['title']] = d['likes']
+  titleToDislike[d['title']] = d['dislikes']
 
 # Import + Register Blueprints
 from app.accounts import accounts as accounts
