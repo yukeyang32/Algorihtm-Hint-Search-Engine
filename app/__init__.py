@@ -6,6 +6,7 @@ monkey.patch_all()
 import os
 import ast
 import math
+import pickle
 import re
 import numpy as np
 import pandas as pd
@@ -16,7 +17,7 @@ from flask_socketio import SocketIO
 
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize,RegexpTokenizer
-from nltk.stem import WordNetLemmatizer
+from nltk.stem import WordNetLemmatizer, PorterStemmer
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 
@@ -47,12 +48,22 @@ titleToDescription = {}
 titleToLike = {}
 titleToDislike = {}
 
+with open('./dataGeneration/wiki_data.pickle', 'rb') as f:
+    wiki_data = pickle.load(f)
+sw = set(stopwords.words('english'))
+
 reg_tokenizer = RegexpTokenizer("[a-zA-Z]{2,}")
+wnl = WordNetLemmatizer() #wnl.lemmatize(t)
+ps = PorterStemmer() #ps.stem(t)
+
+def tokenize(doc):
+  return [ps.stem(t) for t in reg_tokenizer.tokenize(doc) if not t in sw]
+
 def build_inverted_index(data):
 
   inverted_index = defaultdict(list)
   for index, dat in data.iterrows():
-    dat_vec = reg_tokenizer.tokenize(dat['description'].lower())
+    dat_vec = tokenize(dat['description'].lower())
     term_freq_in_dat = Counter(dat_vec)
     for term in term_freq_in_dat:
       inverted_index[term].append((index, term_freq_in_dat[term]))            
@@ -69,7 +80,7 @@ def compute_idf(inv_idx, n_questions, min_df=15, max_df_ratio=0.90):
       continue
     idf[term] = math.log2(n_questions / (1 + len(inv_idx[term])))
   return idf
-idf = compute_idf(inv_idx, len(leetcode_data), min_df=1, max_df_ratio=0.9)
+idf = compute_idf(inv_idx, len(leetcode_data), min_df=5, max_df_ratio=0.7)
 
 def compute_question_norms(index, idf, n_questions):
   norms = np.zeros(n_questions)
@@ -105,11 +116,6 @@ def trainClassifier():
     if tags:
       X.append(description)
       Y.append(tags)
-
-  wnl = WordNetLemmatizer()
-
-  def tokenize(doc):
-    return [wnl.lemmatize(t) for t in reg_tokenizer.tokenize(doc)]
 
   mlVectorizer = TfidfVectorizer(tokenizer=tokenize, stop_words='english', max_df=0.7, min_df=5)
   X = mlVectorizer.fit_transform(X)

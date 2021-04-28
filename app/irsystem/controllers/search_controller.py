@@ -1,6 +1,6 @@
 from wikipedia.wikipedia import suggest
 from . import *  
-from app import leetcode_data, titleToTags, titleToURL, NON_HINT_TAGS, titleToDifficulty, titleToDescription, titleToLike, titleToDislike, classify
+from app import leetcode_data, titleToTags, titleToURL, NON_HINT_TAGS, titleToDifficulty, titleToDescription, titleToLike, titleToDislike, classify, wiki_data
 from app.irsystem.models.helpers import *
 from app.irsystem.models.helpers import NumpyEncoder as NumpyEncoder
 from app.irsystem.models.search import *
@@ -16,7 +16,7 @@ NUM_TOP_HINTS = 6
 
 def getSortedTopTagsML(query):
   tags = classify(query)
-  return [(t, s, wikipedia_safe_summary_crawler(t), wikipedia_safe_url_crawler(t)) for t, s in tags[:NUM_TOP_HINTS]]
+  return [(t, s, wiki_data[t][1], wiki_data[t][0]) for t, s in tags[:NUM_TOP_HINTS]]
 
 def getSortedTopTags(topQuestions):
   totalRelevance = 0
@@ -31,7 +31,7 @@ def getSortedTopTags(topQuestions):
         tagToScore[tag] += score
 
   result =  sorted(((t, s / totalRelevance) for t, s in tagToScore.items()), key=lambda x: x[1], reverse=True)[:NUM_TOP_HINTS]
-  result = [(t, s, wikipedia_safe_summary_crawler(t), wikipedia_safe_url_crawler(t)) for t, s in result]
+  result = [(t, s, wiki_data[t][1], wiki_data[t][0]) for t, s in result]
   return result
 
 @irsystem.route('/', methods=['GET'])
@@ -48,7 +48,7 @@ def search():
     #similarity_score_list = compute_cosine_similarity(query, leetcode_data)
     similarity_score_list = compute_cosine_similarity_tf_idf(query)
     similarity_score_list.sort(key=lambda x: x[1], reverse=True)
-
+    #print(similarity_score_list[:5])
     # Type: [(title, url, score, difficulty, description, likes, dislikes)], sorted by score.
     topQuestions = [(t, titleToURL[t], s, titleToDifficulty[t],titleToDescription[t], titleToLike[t], titleToDislike[t]) for t, s in similarity_score_list[:NUM_TOP_QUESTIONS]]
     # Type: [(hint, score, summary, url)], sorted by score.
