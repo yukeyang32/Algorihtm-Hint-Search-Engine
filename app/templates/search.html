@@ -17,7 +17,7 @@
   <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
   
   
-  <!--link rel="icon" type="image/png" href="{{ url_for('static', filename='img/icon-152x152.png') }}"-->
+  <link rel="icon" type="image/jpeg" href="{{ url_for('static', filename='icon.jpeg') }}">
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -44,7 +44,7 @@
             <span style="color: #CD5C5C; ">Helper</span>
 
         </h1>
-        <h4 style="font-weight: normal; color: #E9967A;">Getting hints & practice questions for your coding interview questions</h4>
+        <h4 style="font-weight: normal; color: #E9967A;">Getting hints & similar questions for your coding questions</h4>
         <h4 style="font-weight: normal; color: #E9967A;">----------</h4>
       </div>
     </section>
@@ -68,6 +68,7 @@
              
 
     <section>
+      <div class="container text-center input_section" style="margin-top:-6%;">
       <ul class="nav nav-tabs tabs-bordered">
         <li class="nav-item"><a href="#hints" data-toggle="tab" aria-expanded="true" class="nav-link active">Hints </a></li>
         <li class="nav-item"><a href="#questions" data-toggle="tab" aria-expanded="false" class="nav-link">Similar Questions</a></li>
@@ -89,7 +90,7 @@
                           </p>
                           <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
-                              <a href="{{q[1]}}"><button type="button" class="btn btn-sm btn-outline-secondary">Link To Question</button></a>
+                              <a href="{{q[1]}}"><button type="button" class="btn btn-sm btn-outline-secondary">Link to Question</button></a>
                             </div>
                             <small class="text-muted"><i class="far fa-thumbs-up"></i> {{q[5]}}   <i class="far fa-thumbs-down"></i> {{q[6]}}   Difficulty: {{q[3]}}</small>
                           </div>
@@ -121,7 +122,7 @@
                           </p>
                           <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
-                              <a href="{{h[3]}}"><button type="button" class="btn btn-sm btn-outline-secondary">Link To Explanation</button></a>
+                              <a href="{{h[3]}}"><button type="button" class="btn btn-sm btn-outline-secondary">Link to Explanation</button></a>
                             </div>
                             <small class="text-muted"></small>
                           </div>
@@ -158,14 +159,17 @@
                     </div>
             {% endif %}
         </div> -->
-    </section>
 
+      </div>
+    </section>
 
 
     </main>
 
     <footer style="background-color: #CD5C5C; ">
         <p style ="color: white;"><a href="https://github.com/yukeyang32/cs4300sp2021-ky442-jz2252-sg2474-wc655-ts864" ><i class="fab fa-github"></i></a>  @{{ name }}: {{ netid }}.</p>
+        <p style ="color: white;"><a href="http://leethelper.herokuapp.com/" >previous version link</a></p>
+        
     </footer>
 
 </body>
