@@ -1,6 +1,6 @@
-from leetCodeCrawler import *
+from leetCodeCrawler import get_problems, get_problem_by_slug
 import html
-import re
+import re,json
 import pandas as pd
 from tqdm import tqdm
 
@@ -8,13 +8,16 @@ HTML_RE = re.compile(r'<[^>]+>')
 
 def extractDescription(raw):
   # Discard all texts since the first example.
-  match = re.search("<strong>Example.*:</strong>", raw)
+  # match = re.search("<strong>Example.*:</strong>", raw)
 
-  if match:
-    raw = raw[:match.start()]
-
-  # Remove HTML tags.
+  # if match:
+    # raw = raw[:match.start()]
+  #print(raw)
   raw = HTML_RE.sub('', raw)
+  raw = raw.split('Example')[0]
+  
+  # Remove HTML tags.
+  
 
   # Replace HTML entities (such as &nbsp; and &lt;) with ASCII symbols and strip spaces
   return html.unescape(raw).strip()
@@ -56,7 +59,7 @@ if __name__ == '__main__':
   BOLD = '\033[1m'
   END = '\033[0m'
 
-  testProblems = ['two-sum', 'number-of-orders-in-the-backlog', '132-pattern', 'transform-to-chessboard']
+  testProblems = ['max-area-of-island', 'employee-importance', '132-pattern', 'transform-to-chessboard']
   result = getDataFor(testProblems)
 
   # for i in range(len(result['id'])):
@@ -67,4 +70,4 @@ if __name__ == '__main__':
 
   pd.DataFrame(result).to_csv('testData.csv', index=False)
 
-  # generateAsCSV()
+  generateAsCSV()
