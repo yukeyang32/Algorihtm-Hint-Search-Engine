@@ -10,14 +10,15 @@
   <link rel="stylesheet" href="/static/main_v1.css">
 
   <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/album/">
-
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Oxygen+Mono&display=swap" rel="stylesheet">
     
 
   <!-- Bootstrap core CSS -->
   <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
   
   
-  <!--link rel="icon" type="image/png" href="{{ url_for('static', filename='img/icon-152x152.png') }}"-->
+  <link rel="icon" type="image/jpeg" href="{{ url_for('static', filename='icon.jpeg') }}">
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -31,21 +32,21 @@
   <script defer src="https://use.fontawesome.com/releases/v5.8.0/js/all.js" integrity="sha384-ukiibbYjFS/1dhODSWD+PrZ6+CGCgf8VbyUH7bQQNUulL+2r59uGYToovytTf4Xm" crossorigin="anonymous"></script>
 </head>
 
-<body style = "background-color: #CD5C5C;">
+<body style = "background-color: #CD5C5C; font-family: 'Oxygen Mono', monospace;">
   <main role="main">
 
     <section class="jumbotron text-center">
       <div class="container">
         <img class="logo" src="{{ url_for('static', filename='icon.jpeg') }}" style="margin-bottom: 2%" />
-        <h1 style="font-size: 55px; font-family:Futura; color: #FFA07A">
-            L
-            <span style="color: #CD5C5C; ">ee</span>
-            <span style="color: #FBBC05; ">t</span>
-            <span style="color: #CD5C5C; ">Helper</span>
+        <h1 style="font-size: 55px; color: #FFA07A">
+          L
+          <span style="color: #CD5C5C; ">ee</span>
+          <span style="color: #FBBC05; ">t</span>
+          <span style="color: #CD5C5C; ">Helper</span>
 
-        </h1>
-        <h4 style="font-weight: normal; color: #E9967A;">Getting hints & practice questions for your coding interview questions</h4>
-        <h4 style="font-weight: normal; color: #E9967A;">----------</h4>
+      </h1>
+      <h4 style="font-weight: normal; color: #E9967A;">Getting hints & similar questions for your coding questions</h4>
+      <h4 style="font-weight: normal; color: #E9967A;">----------</h4>
       </div>
     </section>
 
@@ -58,7 +59,7 @@
                       <textarea id="input" name="search" class="form-control" placeholder="Your coding problem prompt" rows=5>{{query}}</textarea>
                    </div>
                    <div class="row justify-content-center" style="margin-top: 3%;" >
-                      <button type="submit" class= "btn btn-outline-danger"> Search! </button>
+                      <button type="submit" class= "btn btn-outline-danger" style="font-size: 18px; "> Search it! </button>
                     </div>
               
                 </div>
@@ -66,106 +67,94 @@
         </div>
       </section>
              
-
+    {% if topQuestions and topHints %}
     <section>
-      <ul class="nav nav-tabs tabs-bordered">
-        <li class="nav-item"><a href="#hints" data-toggle="tab" aria-expanded="true" class="nav-link active">Hints </a></li>
-        <li class="nav-item"><a href="#questions" data-toggle="tab" aria-expanded="false" class="nav-link">Similar Questions</a></li>
-      </ul>
-      <div class="tab-content">
-        <div class="tab-pane" id="questions">
-          <div class="album py-5">
-            <div class="container">
-        
-              <div>
-                {% if topQuestions %}
-                  {% for q in topQuestions %} 
-                    <div class="col">
-                      <div class="card shadow-sm">
-                        <svg class="bd-placeholder-img card-img-top" width="100%" height="125" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#CD5C5C"/><text text-anchor="middle" y="50%" x="50%" fill="#eceeef" dy=".3em">{{q[0]}}</text></svg>
-            
-                        <div class="card-body">
-                          <p class="card-text">{{q[4]}}
-                          </p>
-                          <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                              <a href="{{q[1]}}"><button type="button" class="btn btn-sm btn-outline-secondary">Link To Question</button></a>
+      <div class="container output" style="margin-top:5%;">
+        <ul class="nav nav-tabs tabs-bordered nav-justified">
+          <li class="nav-item"><a href="#hints" data-toggle="tab" aria-expanded="true" class="nav-link active" style="font-size: 20px; color: #d0902f">Hints </a></li>
+          <li class="nav-item"><a href="#questions" data-toggle="tab" aria-expanded="false" class="nav-link" style="font-size: 20px; color: #a15501">Similar Questions</a></li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane" id="questions">
+            <div class="album py-5">
+              <div class="container">
+          
+                <div>
+                  {% if topQuestions %}
+                    {% for q in topQuestions %} 
+                      <div class="col">
+                        <div class="card shadow-sm">
+                          <svg class="bd-placeholder-img card-img-top" style="font-size: 18px;" width="100%" height="125" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#a15501"/><text text-anchor="middle" y="50%" x="50%" fill="white" dy=".3em">{{q[0]}}</text></svg>
+              
+                          <div class="card-body">
+                            <p class="card-text">{{q[4]}}
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                              <div class="btn-group">
+                                <a href="{{q[1]}}" target="_blank" rel="noopener noreferrer" ><button type="button" class="btn btn-sm btn-outline-light" style="color: #a15501;">Link to Question</button></a>
+                              </div>
+                              <small class="text-muted"><i class="far fa-thumbs-up" style="color:#FFA07A;"></i> {{q[5]}}   <i class="far fa-thumbs-down" style="color:#FBBC05;"></i> {{q[6]}} </small>
+                              {% if q[3] == 'Medium' %}
+                              <small class="text-warning"> Difficulty: {{q[3]}} </small>
+                              {% elif q[3] == 'Easy'%}
+                              <small class="text-success"> Difficulty: {{q[3]}} </small>
+                              {% else %}
+                              <small class="text-danger"> Difficulty: {{q[3]}} </small>
+                              {% endif %}
                             </div>
-                            <small class="text-muted"><i class="far fa-thumbs-up"></i> {{q[5]}}   <i class="far fa-thumbs-down"></i> {{q[6]}}   Difficulty: {{q[3]}}</small>
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <br>
-                  {% endfor %}
-                {% endif %}
+                      <br>
+                    {% endfor %}
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="tab-pane active" id="hints">
+  
+            <div class="album py-5">
+              <div class="container">
+          
+                <div>
+                  {% if topHints %}
+                    {% for h in topHints %} 
+                      <div class="col">
+                        <div class="card shadow-sm">
+                          <svg class="bd-placeholder-img card-img-top" style="font-size: 18px;" width="100%" height="125" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#d0902f"/><text text-anchor="middle" y="50%" x="50%" fill="white" dy=".3em">{{h[0]}}</text></svg>
+              
+                          <div class="card-body">
+                            <p class="card-text">{{h[2]}}
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                              <div class="btn-group">
+                                <a href="{{h[3]}}" target="_blank" rel="noopener noreferrer" ><button type="button" class="btn btn-sm btn-outline-light" style="color: #d0902f;">Link to Explanation</button></a>
+                              </div>
+                              <small class="text-muted"></small>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <br>
+                    {% endfor %}
+                  {% endif %}
+                </div>
               </div>
             </div>
           </div>
         </div>
-
-        <div class="tab-pane active" id="hints">
-
-          <div class="album py-5">
-            <div class="container">
-        
-              <div>
-                {% if topHints %}
-                  {% for h in topHints %} 
-                    <div class="col">
-                      <div class="card shadow-sm">
-                        <svg class="bd-placeholder-img card-img-top" width="100%" height="125" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#CD5C5C"/><text text-anchor="middle" y="50%" x="50%" fill="#eceeef" dy=".3em">{{h[0]}}</text></svg>
-            
-                        <div class="card-body">
-                          <p class="card-text">{{h[2]}}
-                          </p>
-                          <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                              <a href="{{h[3]}}"><button type="button" class="btn btn-sm btn-outline-secondary">Link To Explanation</button></a>
-                            </div>
-                            <small class="text-muted"></small>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <br>
-                  {% endfor %}
-                {% endif %}
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
-
-
-
-        <!-- <div class="output text-center" style="margin-top: -5%">
-            {% if topQuestions %}
-                <h4 style="color: #CD5C5C;">{{output_message}}</h4>
-                <h4 style="color: #CD5C5C;">Hints</h4>
-                    <div class="container justify-content-center" style="width: 80%;">
-                            {% for h in topHints %} 
-                            <h4 style="color: #CD5C5C;">{{'{}, {}'.format(h[0], h[1])}}</h4>
-                            {% endfor %}
-                    </div>
-                
-                <br>
-                <h4 style="color: #CD5C5C;">Similar Questions</h4>
-                    <div class="container justify-content-center" style="width: 80%;">
-                            {% for q in topQuestions %} 
-                            <h4 style="color: #CD5C5C;"><a href="{{q[1]}}">{{q[0]}}</a>, {{q[2]}}</h4>
-                            {% endfor %}
-                    </div>
-            {% endif %}
-        </div> -->
     </section>
-
-
+    {% endif %}
 
     </main>
 
-    <footer style="background-color: #CD5C5C; ">
-        <p style ="color: white;"><a href="https://github.com/yukeyang32/cs4300sp2021-ky442-jz2252-sg2474-wc655-ts864" ><i class="fab fa-github"></i></a>  @{{ name }}: {{ netid }}.</p>
+    <footer style="background-color: #CD5C5C ">
+        <p style ="color: white;">Versions: V2 | <a href="http://leethelperold.herokuapp.com/">Previous V1</a></p>
+        <p style ="color: white;"><a href="https://github.com/yukeyang32/cs4300sp2021-ky442-jz2252-sg2474-wc655-ts864" ><i class="fab fa-github"></i></a>  @{{ name }}: {{ netid }}</p>
+        
     </footer>
 
 </body>

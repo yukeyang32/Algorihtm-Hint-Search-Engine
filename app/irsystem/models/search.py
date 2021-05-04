@@ -1,6 +1,6 @@
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
-from app import idf, inv_idx, question_norms, index_to_title
+from app import idf, inv_idx, question_norms, index_to_title, tokenize
 from collections import Counter, defaultdict
 from functools import lru_cache
 import math
@@ -15,9 +15,9 @@ All similarity measures should have return type [(title, score)], not sorted by 
 
 def compute_cosine_similarity(query,data):
     result = list()
-    query_vec = word_tokenize(query)
+    query_vec = tokenize(query.lower())
     for index, dat in data.iterrows():
-        dat_vec = word_tokenize(dat['description'])
+        dat_vec = tokenize(dat['description'].lower())
         # remove stop words
         query_set = {word for word in query_vec if not word in sw} 
         dat_set = {word for word in dat_vec if not word in sw}
@@ -44,11 +44,9 @@ def compute_cosine_similarity(query,data):
 def compute_cosine_similarity_tf_idf(query):    
     index = inv_idx
     res = []
-    query_toks = word_tokenize(query.lower())
+    query_toks = tokenize(query.lower())
     count_q = dict(Counter(query_toks))
     temp_score = defaultdict(lambda:0) # key: doc_id, value: q*d
-    
-
     for query_term in count_q:
         if query_term not in index:
             continue
