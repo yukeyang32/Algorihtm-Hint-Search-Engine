@@ -14,6 +14,9 @@ net_id = "Wei Cheng - wc655 | Shuyi Gu - sg2474 | Tan Su - ts864 | Keyang Yu - k
 NUM_TOP_QUESTIONS = 6
 NUM_TOP_HINTS = 6
 
+def getScoreMultiplier(likes, dislikes):
+  return (likes + 1) / (likes + dislikes + 1) * np.tanh(likes + dislikes + 1)
+
 def getSortedTopTagsML(query):
   tags = classify(query)
   return [(t, s, wikipedia_safe_summary_crawler(t), wikipedia_safe_url_crawler(t)) for t, s in tags[:NUM_TOP_HINTS]]
@@ -23,7 +26,7 @@ def getSortedTopTags(topQuestions):
   tagToScore = defaultdict(int)
 
   for title, _, score, _, _, likes, dislikes in topQuestions:
-    score *= (likes + 1) / (likes + dislikes + 1) * np.tanh(likes + dislikes + 1)
+    score *= getScoreMultiplier(likes, dislikes)
     totalRelevance += score
 
     for tag in titleToTags[title]:
@@ -50,7 +53,12 @@ def search():
     similarity_score_list.sort(key=lambda x: x[1], reverse=True)
 
     # Type: [(title, url, score, difficulty, description, likes, dislikes)], sorted by score.
-    topQuestions = [(t, titleToURL[t], s, titleToDifficulty[t],titleToDescription[t], titleToLike[t], titleToDislike[t]) for t, s in similarity_score_list[:NUM_TOP_QUESTIONS]]
+    topQuestionsNoVote = [(t, titleToURL[t], s, titleToDifficulty[t], titleToDescription[t], titleToLike[t], titleToDislike[t]) for t, s in similarity_score_list[:NUM_TOP_QUESTIONS]]
+
+    sim_score_list_with_vote = sorted([(t, s * getScoreMultiplier(titleToLike[t], titleToDislike[t])) for t, s in similarity_score_list[:NUM_TOP_QUESTIONS], key=lambda x: x[1], reverse=True)
+    # Type: [(title, url, score, difficulty, description, likes, dislikes)], sorted by score.
+    topQuestionsVote = [(t, titleToURL[t], s, titleToDifficulty[t], titleToDescription[t], titleToLike[t], titleToDislike[t]) for t, s in sim_score_list_with_vote]
+
     # Type: [(hint, score, summary, url)], sorted by score.
     # topHints = getSortedTopTags(topQuestions)
     topHints = getSortedTopTagsML(query)
