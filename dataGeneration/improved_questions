@@ -1,0 +1,488 @@
+4 {'bit-manipulation'}
+7 {'hash-table', 'bit-manipulation'}
+10 {'queue', 'dequeue', 'recursion'}
+11 set()
+12 set()
+15 set()
+16 set()
+18 {'trie', 'sort'}
+20 {'recursion'}
+23 {'sort'}
+30 {'two-pointers', 'queue', 'dequeue', 'greedy'}
+31 set()
+34 {'ordered-map'}
+35 {'two-pointers', 'sort', 'dequeue'}
+43 {'hash-table', 'sort'}
+44 {'stack', 'heap'}
+47 set()
+51 {'two-pointers', 'sort', 'recursion'}
+52 {'two-pointers', 'binary-search'}
+55 {'sort'}
+56 {'heap', 'backtracking'}
+63 {'sort', 'binary-search'}
+67 {'divide-and-conquer', 'bit-manipulation', 'recursion'}
+68 set()
+72 {'heap', 'dynamic-programming'}
+80 {'hash-table'}
+84 set()
+87 {'sliding-window', 'sort', 'recursion'}
+95 {'two-pointers', 'sort', 'recursion'}
+96 {'trie'}
+103 {'recursion'}
+109 {'trie'}
+110 {'stack', 'queue', 'dequeue'}
+111 {'memoization', 'dynamic-programming', 'bit-manipulation', 'recursion'}
+114 {'stack', 'hash-table', 'greedy'}
+118 {'sort', 'dynamic-programming'}
+122 {'hash-table', 'sort', 'bit-manipulation'}
+126 {'two-pointers', 'sort'}
+130 set()
+134 {'memoization', 'dynamic-programming', 'recursion'}
+137 {'two-pointers', 'sort'}
+138 {'sort'}
+145 {'sliding-window'}
+148 {'sort'}
+151 {'sliding-window', 'two-pointers', 'hash-table', 'sort'}
+158 {'sort'}
+159 {'stack'}
+162 {'queue', 'trie', 'breadth-first-search', 'stack', 'recursion', 'dequeue'}
+163 {'sort', 'binary-search', 'recursion'}
+164 {'heap', 'segment-tree'}
+169 {'queue', 'trie', 'stack', 'recursion', 'dequeue'}
+175 set()
+179 {'queue', 'dequeue'}
+182 {'hash-table'}
+183 {'hash-table', 'recursion'}
+187 {'queue', 'dequeue'}
+191 {'sliding-window', 'two-pointers', 'sort', 'recursion', 'dynamic-programming'}
+195 {'sliding-window', 'two-pointers', 'sort', 'recursion'}
+199 set()
+202 {'binary-search'}
+203 {'two-pointers'}
+206 {'two-pointers', 'dynamic-programming'}
+209 {'memoization', 'binary-search', 'recursion', 'dynamic-programming'}
+213 {'union-find'}
+214 {'queue', 'dequeue'}
+217 {'two-pointers', 'queue', 'stack', 'dequeue'}
+218 set()
+220 {'greedy'}
+230 {'binary-search'}
+232 {'sliding-window', 'two-pointers', 'sort', 'stack', 'dynamic-programming'}
+236 {'dynamic-programming'}
+237 {'bit-manipulation'}
+240 {'minimax'}
+245 {'hash-table'}
+255 {'sort', 'recursion', 'dynamic-programming'}
+256 {'backtracking', 'greedy', 'topological-sort', 'memoization', 'depth-first-search', 'dynamic-programming', 'bit-manipulation'}
+257 {'sliding-window', 'binary-search', 'recursion', 'dynamic-programming'}
+258 {'sort', 'dynamic-programming'}
+261 {'two-pointers', 'stack', 'dequeue'}
+263 {'two-pointers', 'bit-manipulation', 'recursion'}
+266 {'sort', 'greedy'}
+267 {'two-pointers', 'heap', 'ordered-map', 'sort'}
+269 {'queue', 'dequeue'}
+271 {'stack'}
+275 {'trie'}
+276 {'recursion'}
+279 {'stack'}
+281 {'memoization', 'sort', 'topological-sort', 'dynamic-programming'}
+283 {'sort'}
+290 {'sliding-window', 'two-pointers', 'greedy', 'stack', 'recursion', 'heap'}
+291 {'stack', 'hash-table'}
+294 {'recursion'}
+295 {'sliding-window', 'two-pointers', 'dynamic-programming'}
+298 {'sliding-window', 'trie', 'heap'}
+300 {'greedy', 'memoization', 'hash-table', 'heap', 'dynamic-programming'}
+302 {'two-pointers', 'stack', 'dequeue'}
+305 {'greedy'}
+306 {'heap', 'greedy'}
+309 {'dequeue'}
+310 {'trie', 'sort'}
+317 {'binary-search'}
+319 {'ordered-map', 'hash-table', 'heap'}
+320 {'two-pointers', 'binary-indexed-tree', 'backtracking', 'dynamic-programming', 'segment-tree'}
+321 {'hash-table', 'sort'}
+322 {'greedy'}
+324 {'heap', 'recursion'}
+327 {'heap'}
+328 {'hash-table', 'memoization'}
+332 set()
+335 {'union-find', 'heap', 'greedy', 'bit-manipulation'}
+336 set()
+340 {'sort', 'binary-search', 'dynamic-programming'}
+347 {'memoization', 'binary-search', 'recursion', 'dynamic-programming'}
+351 {'sliding-window', 'hash-table', 'bit-manipulation'}
+354 {'sort', 'binary-search'}
+355 {'two-pointers', 'hash-table', 'heap'}
+356 {'hash-table', 'binary-search', 'bit-manipulation'}
+362 {'sliding-window', 'two-pointers', 'binary-search', 'sort'}
+363 {'hash-table', 'sort'}
+366 {'depth-first-search', 'heap'}
+368 {'two-pointers', 'sort'}
+370 {'trie', 'recursion'}
+371 {'two-pointers', 'stack'}
+372 {'stack'}
+374 set()
+375 {'sliding-window', 'queue', 'dynamic-programming', 'dequeue'}
+380 {'recursion', 'binary-search', 'greedy', 'dynamic-programming'}
+384 {'two-pointers', 'queue', 'greedy', 'stack', 'dequeue'}
+388 {'two-pointers', 'sort'}
+392 {'two-pointers', 'sort', 'bit-manipulation', 'recursion'}
+399 {'bit-manipulation', 'recursion'}
+403 set()
+405 {'two-pointers', 'trie', 'sort', 'heap', 'binary-search'}
+406 {'depth-first-search', 'hash-table', 'recursion'}
+407 {'greedy'}
+411 {'recursion'}
+415 {'bit-manipulation'}
+416 set()
+425 {'bit-manipulation'}
+429 {'trie', 'sort', 'backtracking', 'hash-table', 'union-find'}
+430 {'sliding-window', 'sort', 'heap'}
+433 {'hash-table', 'dynamic-programming', 'recursion', 'backtracking'}
+435 {'heap'}
+436 set()
+441 {'queue', 'heap', 'dequeue', 'dynamic-programming'}
+447 {'queue'}
+451 {'sort'}
+453 set()
+459 set()
+461 set()
+463 {'two-pointers'}
+466 {'memoization'}
+467 {'sort'}
+469 {'bit-manipulation'}
+470 {'binary-search'}
+472 {'trie', 'greedy'}
+473 {'queue', 'trie', 'recursion', 'dequeue', 'union-find'}
+474 set()
+476 {'sliding-window', 'hash-table', 'binary-search', 'dequeue'}
+477 {'stack', 'heap'}
+478 {'sliding-window', 'backtracking', 'stack', 'recursion', 'hash-table'}
+481 {'sliding-window', 'recursion'}
+482 set()
+484 {'sort', 'heap', 'binary-search', 'stack'}
+485 set()
+488 {'two-pointers', 'greedy'}
+491 {'binary-search'}
+493 {'greedy'}
+497 {'two-pointers', 'sort', 'recursion'}
+504 {'stack', 'dynamic-programming', 'recursion'}
+508 {'hash-table', 'dynamic-programming'}
+512 {'sliding-window', 'sort', 'binary-search'}
+517 set()
+520 {'sort'}
+523 {'heap', 'segment-tree'}
+524 set()
+525 set()
+526 {'stack', 'recursion'}
+528 {'binary-search'}
+529 {'trie', 'dequeue'}
+530 {'stack', 'trie', 'recursion'}
+531 set()
+532 {'queue', 'dequeue'}
+539 {'two-pointers', 'queue', 'stack', 'recursion', 'dequeue'}
+544 {'bit-manipulation'}
+546 {'hash-table', 'recursion'}
+551 {'two-pointers', 'sort'}
+559 {'heap', 'greedy', 'backtracking'}
+560 {'stack', 'hash-table'}
+563 set()
+569 {'memoization', 'two-pointers', 'dynamic-programming', 'recursion'}
+571 {'dynamic-programming', 'minimax', 'recursion'}
+573 {'suffix-array', 'sliding-window', 'dynamic-programming'}
+582 {'queue', 'backtracking', 'stack', 'recursion', 'hash-table', 'bit-manipulation', 'dequeue', 'divide-and-conquer'}
+586 {'heap', 'bit-manipulation'}
+587 {'bit-manipulation', 'recursion'}
+588 {'two-pointers', 'hash-table', 'trie'}
+589 {'hash-table', 'memoization', 'greedy'}
+590 {'two-pointers', 'dynamic-programming'}
+591 {'two-pointers'}
+594 {'hash-table', 'binary-search', 'trie'}
+595 {'bit-manipulation'}
+596 {'binary-search-tree', 'trie', 'stack', 'recursion', 'binary-search'}
+598 set()
+605 {'recursion'}
+606 {'trie', 'recursion'}
+607 {'hash-table'}
+615 {'queue', 'dequeue'}
+619 set()
+632 {'sort', 'memoization', 'recursion', 'hash-table', 'dynamic-programming'}
+633 set()
+640 {'queue', 'trie', 'stack', 'recursion', 'hash-table', 'dequeue', 'binary-search'}
+642 set()
+643 {'sliding-window', 'two-pointers', 'stack', 'ordered-map', 'dynamic-programming', 'binary-search', 'segment-tree'}
+647 {'queue', 'trie', 'recursion', 'heap', 'dequeue'}
+654 {'recursion'}
+655 {'two-pointers', 'queue', 'sort', 'recursion', 'dequeue'}
+656 {'trie', 'backtracking', 'greedy', 'recursion'}
+660 {'sort', 'greedy', 'dynamic-programming'}
+663 {'two-pointers', 'greedy', 'minimax', 'heap', 'dequeue'}
+664 {'two-pointers', 'stack', 'binary-search'}
+668 {'trie', 'sort', 'ordered-map', 'recursion', 'heap'}
+676 {'hash-table', 'heap', 'trie'}
+679 {'dynamic-programming'}
+686 {'depth-first-search', 'queue', 'dequeue', 'breadth-first-search'}
+687 {'memoization', 'dynamic-programming'}
+688 {'two-pointers', 'stack'}
+689 {'hash-table'}
+690 {'memoization', 'dynamic-programming'}
+691 {'hash-table'}
+693 {'sort', 'stack', 'recursion', 'heap', 'divide-and-conquer'}
+697 {'minimax'}
+699 set()
+700 {'two-pointers', 'queue', 'sort', 'stack', 'dequeue'}
+705 {'dequeue', 'recursion'}
+706 set()
+709 set()
+712 {'sort'}
+713 set()
+714 {'dynamic-programming', 'recursion'}
+715 {'hash-table', 'bit-manipulation'}
+716 {'stack', 'recursion'}
+717 {'two-pointers', 'binary-search'}
+720 {'sort', 'recursion'}
+722 set()
+728 set()
+733 {'two-pointers', 'stack', 'recursion'}
+741 {'sort', 'backtracking', 'minimax', 'recursion', 'hash-table', 'bit-manipulation'}
+742 {'sliding-window', 'greedy', 'bit-manipulation'}
+743 set()
+744 set()
+752 {'two-pointers'}
+753 {'bit-manipulation', 'recursion'}
+762 {'sliding-window', 'two-pointers', 'queue', 'greedy', 'stack', 'dequeue', 'binary-search'}
+763 set()
+771 set()
+775 set()
+776 {'bit-manipulation'}
+778 {'heap'}
+779 {'two-pointers', 'dynamic-programming', 'bit-manipulation'}
+782 set()
+783 {'sliding-window', 'two-pointers', 'queue', 'stack', 'dequeue'}
+784 {'sliding-window'}
+788 {'binary-search'}
+789 {'sliding-window', 'dynamic-programming', 'greedy', 'recursion'}
+790 {'two-pointers', 'trie', 'memoization', 'recursion', 'hash-table', 'dynamic-programming', 'binary-search'}
+791 set()
+792 {'two-pointers', 'stack', 'binary-search', 'dequeue'}
+793 {'hash-table', 'sort', 'trie'}
+794 {'two-pointers', 'queue', 'dequeue'}
+795 {'sort', 'hash-table', 'heap', 'trie'}
+797 {'two-pointers', 'queue', 'dequeue', 'union-find', 'binary-search'}
+798 set()
+800 {'depth-first-search', 'trie', 'memoization', 'recursion'}
+802 set()
+804 set()
+805 {'two-pointers', 'trie', 'stack', 'recursion', 'hash-table'}
+807 set()
+808 {'hash-table'}
+809 {'memoization', 'dynamic-programming', 'recursion', 'backtracking'}
+810 {'hash-table', 'sort', 'bit-manipulation', 'trie'}
+817 set()
+819 {'two-pointers', 'queue', 'dequeue'}
+820 {'sliding-window', 'two-pointers', 'dynamic-programming', 'memoization'}
+823 {'two-pointers', 'queue', 'trie', 'sort', 'dequeue', 'binary-search'}
+824 {'two-pointers', 'hash-table', 'sort'}
+826 set()
+827 {'depth-first-search', 'dynamic-programming'}
+833 {'bit-manipulation'}
+835 {'recursion'}
+838 {'greedy'}
+840 {'binary-indexed-tree', 'trie', 'sort', 'bit-manipulation'}
+843 {'binary-search-tree', 'queue', 'trie', 'recursion', 'depth-first-search', 'dequeue', 'binary-search'}
+844 {'binary-search-tree', 'queue', 'trie', 'stack', 'recursion', 'dequeue', 'divide-and-conquer', 'binary-search'}
+847 {'sliding-window', 'two-pointers', 'greedy', 'recursion', 'dynamic-programming'}
+848 {'two-pointers', 'stack', 'sort'}
+850 {'sort', 'recursion', 'dynamic-programming'}
+851 {'trie', 'stack', 'recursion', 'depth-first-search', 'dequeue'}
+852 {'trie', 'stack', 'recursion', 'depth-first-search', 'dequeue'}
+854 set()
+855 {'recursion'}
+865 {'binary-search', 'recursion'}
+870 {'ordered-map'}
+875 {'bit-manipulation'}
+880 {'stack', 'recursion'}
+886 {'sort', 'binary-search', 'segment-tree'}
+887 {'recursion'}
+889 {'recursion'}
+890 {'sliding-window', 'two-pointers', 'dynamic-programming', 'recursion'}
+891 set()
+896 {'trie', 'sort', 'stack', 'recursion', 'bit-manipulation'}
+903 {'sliding-window', 'hash-table'}
+904 {'sliding-window', 'two-pointers', 'stack', 'greedy'}
+913 {'rolling-hash', 'sort', 'binary-search'}
+917 {'sliding-window', 'two-pointers', 'sort', 'backtracking', 'recursion'}
+919 {'backtracking', 'sort', 'greedy', 'stack', 'memoization', 'recursion', 'dynamic-programming', 'bit-manipulation'}
+923 {'sliding-window', 'two-pointers', 'stack', 'greedy'}
+925 {'bit-manipulation'}
+926 {'sort', 'stack', 'recursion', 'depth-first-search', 'heap'}
+927 {'two-pointers', 'sort', 'greedy', 'backtracking', 'stack', 'recursion'}
+930 {'two-pointers', 'dequeue', 'sort', 'greedy'}
+931 {'two-pointers', 'backtracking', 'greedy', 'stack', 'minimax', 'recursion'}
+933 {'queue', 'sort', 'trie', 'breadth-first-search', 'stack', 'recursion', 'depth-first-search', 'hash-table', 'dequeue'}
+934 set()
+937 {'stack'}
+938 {'queue', 'dequeue', 'recursion'}
+939 {'trie', 'stack', 'minimax', 'recursion', 'heap', 'dequeue', 'divide-and-conquer', 'binary-search'}
+940 {'two-pointers', 'queue', 'sort', 'breadth-first-search', 'stack', 'recursion', 'hash-table', 'dequeue', 'binary-search'}
+941 {'memoization', 'recursion'}
+948 {'sliding-window', 'two-pointers', 'memoization'}
+949 set()
+952 {'queue', 'trie', 'breadth-first-search', 'stack', 'recursion', 'dequeue', 'binary-search'}
+954 {'two-pointers', 'binary-search', 'sort'}
+958 {'sort', 'heap', 'dynamic-programming'}
+959 set()
+960 set()
+961 {'queue', 'trie', 'breadth-first-search', 'recursion', 'depth-first-search', 'dequeue'}
+963 set()
+964 {'queue', 'trie', 'stack', 'minimax', 'recursion', 'depth-first-search', 'dequeue'}
+965 {'sliding-window', 'two-pointers', 'queue', 'sort', 'hash-table', 'dequeue', 'binary-search'}
+967 {'recursion'}
+969 set()
+972 set()
+973 set()
+974 {'sort'}
+976 set()
+977 set()
+979 set()
+980 {'memoization', 'sort', 'recursion', 'dynamic-programming'}
+981 {'sliding-window', 'two-pointers', 'trie', 'sort', 'stack', 'minimax', 'binary-search'}
+984 {'queue', 'sort', 'trie', 'stack', 'recursion', 'dequeue'}
+986 {'queue', 'dequeue'}
+987 {'union-find', 'memoization', 'recursion'}
+988 {'sort'}
+990 {'sort', 'greedy'}
+992 {'two-pointers', 'stack', 'heap'}
+993 {'sort', 'greedy', 'stack', 'recursion', 'binary-search'}
+995 {'dynamic-programming', 'recursion'}
+997 set()
+1000 {'trie', 'greedy', 'recursion', 'depth-first-search', 'dynamic-programming'}
+1002 {'two-pointers', 'dequeue', 'recursion'}
+1004 {'two-pointers', 'sort'}
+1006 set()
+1009 {'binary-search-tree', 'queue', 'sort', 'stack', 'recursion', 'dequeue', 'binary-search'}
+1011 {'two-pointers', 'stack', 'sort', 'recursion'}
+1016 {'greedy'}
+1017 set()
+1018 {'two-pointers', 'bit-manipulation'}
+1019 {'memoization', 'dynamic-programming', 'recursion', 'backtracking'}
+1026 {'sort'}
+1027 {'queue', 'sort', 'hash-table', 'heap', 'dequeue'}
+1028 {'stack'}
+1031 {'stack', 'recursion'}
+1033 {'stack', 'sort', 'dequeue', 'recursion'}
+1035 {'sort'}
+1038 {'binary-search'}
+1043 {'sliding-window', 'two-pointers', 'trie', 'dynamic-programming', 'bit-manipulation'}
+1045 {'stack', 'queue', 'dequeue'}
+1046 set()
+1048 set()
+1055 set()
+1060 {'sort', 'binary-search'}
+1062 {'sort', 'hash-table', 'heap'}
+1063 {'sliding-window', 'two-pointers', 'sort', 'recursion', 'rolling-hash', 'dynamic-programming'}
+1064 {'recursion'}
+1069 set()
+1072 {'binary-search-tree', 'trie', 'recursion', 'depth-first-search', 'binary-search'}
+1073 {'binary-search-tree', 'queue', 'trie', 'breadth-first-search', 'stack', 'recursion', 'dequeue'}
+1074 {'two-pointers', 'sort', 'recursion', 'hash-table', 'bit-manipulation', 'binary-search'}
+1077 {'stack', 'dequeue', 'recursion'}
+1078 {'sliding-window', 'two-pointers'}
+1079 {'two-pointers', 'hash-table', 'binary-search', 'dynamic-programming'}
+1081 set()
+1083 {'sliding-window', 'queue', 'sort', 'trie', 'backtracking', 'stack', 'memoization', 'recursion', 'depth-first-search', 'hash-table', 'dynamic-programming', 'dequeue', 'binary-search'}
+1086 set()
+1087 {'queue', 'dequeue', 'bit-manipulation', 'hash-table'}
+1088 {'hash-table', 'heap'}
+1090 {'hash-table', 'backtracking', 'greedy'}
+1092 {'dynamic-programming', 'greedy'}
+1093 {'dequeue', 'recursion'}
+1096 {'two-pointers', 'sort', 'stack', 'recursion', 'dequeue'}
+1097 {'sort', 'heap', 'recursion', 'dynamic-programming'}
+1099 {'sort', 'dynamic-programming'}
+1105 {'binary-search-tree', 'queue', 'trie', 'stack', 'memoization', 'recursion', 'depth-first-search', 'heap', 'dequeue'}
+1109 set()
+1113 set()
+1119 {'two-pointers', 'recursion'}
+1121 {'stack', 'trie', 'backtracking'}
+1123 {'sort', 'backtracking', 'stack', 'memoization', 'recursion'}
+1125 {'recursion'}
+1126 {'hash-table'}
+1136 {'sort', 'binary-search'}
+1140 {'heap', 'recursion'}
+1157 {'sort'}
+1158 {'two-pointers', 'sort', 'greedy', 'stack', 'minimax', 'dynamic-programming', 'binary-search'}
+1163 {'two-pointers', 'trie', 'sort', 'recursion'}
+1165 {'sort', 'bit-manipulation', 'recursion'}
+1169 {'sort', 'binary-search'}
+1184 {'queue', 'sort', 'trie', 'breadth-first-search', 'recursion', 'depth-first-search', 'heap', 'bit-manipulation', 'dequeue'}
+1188 {'queue', 'sort', 'dynamic-programming', 'dequeue', 'bit-manipulation'}
+1190 {'memoization', 'stack', 'sort', 'greedy'}
+1197 {'sort', 'stack', 'binary-search', 'recursion'}
+1200 {'recursion', 'sort', 'bit-manipulation', 'dynamic-programming'}
+1201 set()
+1203 {'sort', 'trie', 'heap', 'recursion'}
+1209 {'two-pointers', 'trie', 'sort', 'greedy', 'suffix-array', 'recursion', 'dynamic-programming', 'divide-and-conquer'}
+1210 {'sort', 'heap', 'recursion'}
+1211 {'queue', 'sort', 'trie', 'backtracking', 'stack', 'recursion', 'depth-first-search', 'dynamic-programming', 'dequeue', 'divide-and-conquer', 'binary-search'}
+1212 {'binary-search-tree', 'queue', 'sort', 'trie', 'recursion', 'dequeue', 'binary-search'}
+1214 {'sort', 'recursion', 'dynamic-programming'}
+1218 {'two-pointers', 'sort', 'hash-table', 'dynamic-programming', 'binary-search'}
+1219 {'sliding-window', 'two-pointers', 'sort', 'stack', 'recursion', 'heap', 'binary-search'}
+1221 {'two-pointers', 'queue', 'sort', 'trie', 'stack', 'recursion', 'depth-first-search', 'dequeue'}
+1224 {'sort'}
+1233 {'rolling-hash', 'two-pointers', 'sort', 'dynamic-programming'}
+1241 {'two-pointers', 'trie', 'sort', 'stack', 'minimax', 'recursion', 'hash-table'}
+1244 {'two-pointers', 'sort', 'recursion'}
+1250 set()
+1251 set()
+1252 {'heap'}
+1253 set()
+1254 set()
+1255 {'trie', 'sort'}
+1258 {'two-pointers', 'queue', 'sort', 'stack', 'dequeue', 'bit-manipulation'}
+1261 set()
+1262 set()
+1263 set()
+1264 {'heap'}
+1265 {'sort'}
+1266 set()
+1268 set()
+1269 set()
+1270 set()
+1271 set()
+1274 {'sort', 'binary-search', 'recursion'}
+1275 {'sort', 'recursion', 'hash-table', 'dynamic-programming', 'bit-manipulation'}
+1277 {'stack', 'sort', 'recursion'}
+1280 {'two-pointers', 'queue', 'sort', 'recursion', 'dynamic-programming', 'dequeue'}
+1283 {'two-pointers', 'trie', 'sort', 'stack', 'recursion', 'hash-table', 'heap'}
+1288 {'sliding-window', 'two-pointers', 'backtracking', 'sort', 'stack', 'recursion', 'heap'}
+1293 {'two-pointers', 'queue', 'sort', 'trie', 'stack', 'ordered-map', 'hash-table', 'dynamic-programming', 'heap', 'dequeue'}
+1296 {'two-pointers', 'queue', 'trie', 'stack', 'recursion', 'hash-table', 'dequeue'}
+1320 {'queue', 'sort', 'stack', 'memoization', 'recursion', 'hash-table', 'dynamic-programming', 'dequeue'}
+1321 {'two-pointers', 'sort', 'stack', 'memoization', 'recursion', 'dynamic-programming'}
+1347 {'trie', 'sort', 'stack', 'recursion', 'heap', 'dequeue'}
+1356 {'sliding-window', 'two-pointers', 'sort', 'recursion', 'hash-table', 'heap'}
+1357 {'two-pointers', 'sort', 'stack', 'recursion', 'hash-table', 'dynamic-programming'}
+1366 {'two-pointers', 'queue', 'sort', 'recursion', 'hash-table', 'heap', 'dequeue'}
+1371 {'two-pointers', 'queue', 'greedy', 'recursion', 'dynamic-programming', 'dequeue'}
+1372 {'two-pointers', 'sort', 'recursion', 'dequeue', 'bit-manipulation'}
+1373 {'two-pointers', 'sort', 'stack', 'recursion', 'heap'}
+1374 {'sort', 'heap'}
+1380 {'queue', 'sort', 'greedy', 'recursion', 'dequeue'}
+1381 {'sliding-window', 'two-pointers', 'trie', 'sort', 'greedy', 'dynamic-programming', 'heap'}
+1385 {'queue', 'sort', 'backtracking', 'recursion', 'heap'}
+1391 {'stack', 'sort', 'recursion'}
+1396 {'divide-and-conquer', 'sort', 'bit-manipulation', 'dynamic-programming'}
+1398 {'sort', 'backtracking', 'stack', 'hash-table', 'heap', 'bit-manipulation', 'dynamic-programming', 'union-find', 'binary-search'}
+1401 {'sliding-window', 'two-pointers', 'queue', 'sort', 'backtracking', 'stack', 'memoization', 'recursion', 'dynamic-programming', 'heap', 'dequeue'}
+1408 {'two-pointers', 'backtracking', 'sort', 'stack', 'recursion', 'heap', 'binary-search'}
+1414 {'sliding-window', 'two-pointers', 'queue', 'stack', 'recursion', 'heap', 'dequeue'}
+1425 {'trie', 'sort', 'recursion', 'divide-and-conquer', 'binary-search'}
+1426 {'sort', 'stack', 'recursion', 'hash-table', 'heap', 'dynamic-programming'}
+1427 {'sort', 'greedy', 'stack', 'recursion', 'binary-search'}
+1430 {'two-pointers', 'queue', 'trie', 'sort', 'stack', 'recursion', 'heap', 'dequeue'}
+1431 {'sort', 'heap', 'recursion', 'dynamic-programming'}
+1432 {'queue', 'sort', 'stack', 'minimax', 'recursion', 'dequeue'}
+1433 {'stack', 'sort', 'recursion', 'breadth-first-search'}
