@@ -31,7 +31,29 @@
   <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify@2/dist/tagify.min.js"></script>
   <script defer src="https://use.fontawesome.com/releases/v5.8.0/js/all.js" integrity="sha384-ukiibbYjFS/1dhODSWD+PrZ6+CGCgf8VbyUH7bQQNUulL+2r59uGYToovytTf4Xm" crossorigin="anonymous"></script>
 
-
+  <style>
+    h4 {
+      position: relative;
+      text-transform: uppercase;
+      overflow: hidden;
+      background: linear-gradient(90deg, #E9967A, #FBBC05, #E9967A);
+      background-repeat: no-repeat;
+      background-size: 80%;
+      animation: animate 3s linear infinite;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: rgba(255, 255, 255, 0);
+    }
+    
+    @keyframes animate {
+      0% {
+        background-position: -500%;
+      }
+      100% {
+        background-position: 500%;
+      }
+    }
+    
+    </style>
 
 </head>
 
@@ -42,15 +64,15 @@
 
     <section class="jumbotron text-center">
       <div class="container">
-        <img class="logo" src="{{ url_for('static', filename='icon.jpeg') }}" style="margin-bottom: 2%" />
-        <h1 style="font-size: 55px; color: #FFA07A">
+        <img class="logo" src="{{ url_for('static', filename='icon.gif') }}" style="margin-bottom: -5%" />
+        <h1 style="font-size: 55px; font-family:Impact, Haettenschweiler, 'Bold'; color: #FFA07A">
           L
           <span style="color: #CD5C5C; ">ee</span>
           <span style="color: #FBBC05; ">t</span>
           <span style="color: #CD5C5C; ">Helper</span>
-
-      </h1>
-      <h4 style="font-weight: normal; color: #E9967A;">Getting hints & similar questions for your coding questions</h4>
+       </h1>
+       
+      <h4 style="font-size: 20px; font-weight: normal; color: #E9967A;">Getting hints & similar questions for your coding questions</h4>
       <h4 style="font-weight: normal; color: #E9967A;">----------</h4>
       </div>
     </section>
