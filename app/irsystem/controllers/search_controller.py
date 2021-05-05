@@ -43,7 +43,8 @@ def search():
 
   if not query:
     query = ''
-    topQuestions = []
+    topQuestionsNoVote = []
+    topQuestionsVote = []
     topHints = []
 
   else:
@@ -55,7 +56,7 @@ def search():
     # Type: [(title, url, score, difficulty, description, likes, dislikes)], sorted by score.
     topQuestionsNoVote = [(t, titleToURL[t], s, titleToDifficulty[t], titleToDescription[t], titleToLike[t], titleToDislike[t]) for t, s in similarity_score_list[:NUM_TOP_QUESTIONS]]
 
-    sim_score_list_with_vote = sorted([(t, s * getScoreMultiplier(titleToLike[t], titleToDislike[t])) for t, s in similarity_score_list[:NUM_TOP_QUESTIONS], key=lambda x: x[1], reverse=True)
+    sim_score_list_with_vote = sorted([(t, getScoreMultiplier(titleToLike[t], titleToDislike[t])) for t, s in similarity_score_list[:NUM_TOP_QUESTIONS]], key = lambda x: x[1], reverse=True)
     # Type: [(title, url, score, difficulty, description, likes, dislikes)], sorted by score.
     topQuestionsVote = [(t, titleToURL[t], s, titleToDifficulty[t], titleToDescription[t], titleToLike[t], titleToDislike[t]) for t, s in sim_score_list_with_vote]
 
@@ -71,4 +72,4 @@ def search():
     print()
     """
 
-  return render_template('search.html', name=project_name, netid=net_id, query=query, topQuestions=topQuestions, topHints=topHints)
+  return render_template('search.html', name=project_name, netid=net_id, query=query, topQuestions=topQuestionsNoVote, topQuestionsVote = topQuestionsVote, topHints=topHints)
